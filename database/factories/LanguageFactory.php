@@ -17,8 +17,16 @@ class LanguageFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
-        ];
+        $languages = [
+                    ['name' => 'English', 'code' => 'en'],
+                    ['name' => 'Russian', 'code' => 'ru'],
+                    ['name' => 'Turkmen', 'code' => 'tk'],
+                    ['name' => 'Turkish', 'code' => 'tr'],
+                    ['name' => 'German', 'code' => 'de'],
+                    ['name' => 'French', 'code' => 'fr'],
+                ];
+        
+                return fake()->randomElement($languages);
+
     }
 }

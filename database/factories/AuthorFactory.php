@@ -19,8 +19,10 @@ class AuthorFactory extends Factory
     {
         return [
                     'name'       => fake()->name(),
+                    'surname'    => fake()->lastname(),
                     'birth_date' => fake()->date('Y-m-d', '2000-01-01'),
-                    'country'    => fake()->country(),
+                    'death_date' => fake()->optional()->date(),
+                    // 'country'    => fake()->country(),
         ];
     }
 }
