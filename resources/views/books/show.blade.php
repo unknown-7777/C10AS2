@@ -51,6 +51,7 @@
                             <div class="text-muted small mb-1"><i class="bi bi-person me-1"></i>Author</div>
                             <a href="{{ route('authors.show.link', $book->author) }}" class="fw-semibold text-decoration-none">
                                 {{ $book->author->name }}
+                                {{ $book->author->surname }}
                             </a>
                         </div>
                     </div>

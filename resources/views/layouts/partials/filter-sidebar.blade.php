@@ -10,13 +10,8 @@
 
                 <div class="mb-3">
                     <label class="form-label text-muted small">Search</label>
-                    <input
-                        type="text"
-                        name="search"
-                        class="form-control form-control-sm"
-                        placeholder="Search..."
-                        value="{{ request('search') }}"
-                    >
+                    <input type="text" name="search" class="form-control form-control-sm"
+                           placeholder="Search..." value="{{ request('search') }}">
                 </div>
 
                 @isset($categories)
@@ -27,6 +22,20 @@
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
                                 {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                @endisset
+
+                @isset($countries)
+                <div class="mb-3">
+                    <label class="form-label text-muted small">Country</label>
+                    <select name="country" class="form-select form-select-sm">
+                        <option value="">All countries</option>
+                        @foreach($countries as $country)
+                            <option value="{{ $country }}" {{ request('country') == $country ? 'selected' : '' }}>
+                                {{ $country }}
                             </option>
                         @endforeach
                     </select>
