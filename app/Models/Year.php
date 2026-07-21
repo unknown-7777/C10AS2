@@ -14,7 +14,7 @@ class Year extends Model
         'value'
         ];
 
-    public function book()
+    public function books()
     {
         return $this->hasMany(Book::class);
     }

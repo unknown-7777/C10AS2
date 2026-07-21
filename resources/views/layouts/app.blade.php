@@ -45,11 +45,11 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" href="#">
+                <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" href="{{ route('categories.index.link') }}">
                     <i class="bi bi-tag me-1"></i>Categories
                 </a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('publishers.*') ? 'active' : '' }}" href="#">
                     <i class="bi bi-building me-1"></i>Publishers
                 </a>
@@ -63,10 +63,10 @@
                 <a class="nav-link {{ request()->routeIs('years.*') ? 'active' : '' }}" href="#">
                     <i class="bi bi-calendar me-1"></i>Years
                 </a>
-            </li>
+            </li>-->
         </ul>
 
-        <form action="#" method="GET" class="d-flex search-wrapper ms-auto">
+        <!--<form action="#" method="GET" class="d-flex search-wrapper ms-auto">
             <div class="input-group">
                 <input
                     type="search"
@@ -81,7 +81,7 @@
                 </button>
             </div>
         </form>
-    </div>
+    </div>-->
 </nav>
 
 <main class="container-fluid py-4 px-4">

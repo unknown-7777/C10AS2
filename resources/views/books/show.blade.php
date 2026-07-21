@@ -49,7 +49,7 @@
                     <div class="col-sm-4">
                         <div class="p-3 bg-light rounded">
                             <div class="text-muted small mb-1"><i class="bi bi-person me-1"></i>Author</div>
-                            <a href="#" class="fw-semibold text-decoration-none">
+                            <a href="{{ route('authors.show.link', $book->author) }}" class="fw-semibold text-decoration-none">
                                 {{ $book->author->name }}
                             </a>
                         </div>
@@ -57,7 +57,7 @@
                     <div class="col-sm-4">
                         <div class="p-3 bg-light rounded">
                             <div class="text-muted small mb-1"><i class="bi bi-tag me-1"></i>Category</div>
-                            <a href="#" class="fw-semibold text-decoration-none">
+                            <a href="{{ route('categories.show.link', $book->category) }}" class="fw-semibold text-decoration-none">
                                 {{ $book->category->name }}
                             </a>
                         </div>
@@ -77,9 +77,7 @@
                     <div class="col-sm-4">
                         <div class="p-3 bg-light rounded">
                             <div class="text-muted small mb-1"><i class="bi bi-building me-1"></i>Publisher</div>
-                            <a href="#" class="fw-semibold text-decoration-none">
-                                {{ $book->publisher->name }}
-                            </a>
+                            <span class="fw-semibold">{{ $book->publisher->name }}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
