@@ -24,7 +24,7 @@ class BookFactory extends Factory
         return [
                 'title'        => fake()->sentence(fake()->numberBetween(2, 5), false),
                 'code'         => fake()->unique()->isbn13(),
-                'page_count'        => fake()->numberBetween(80, 1200),
+                'page_count'   => fake()->numberBetween(80, 1200),
                 'description'  => fake()->paragraph(3),
                 'author_id'    => Author::inRandomOrder()->first()?->id ?? Author::factory(),
                 'category_id'  => Category::inRandomOrder()->first()?->id ?? Category::factory(),

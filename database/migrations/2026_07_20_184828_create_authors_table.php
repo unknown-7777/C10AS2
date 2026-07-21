@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('surname');
+            $table->string('country');
+            $table->string('bio', 500)->nullable();
             $table->date('birth_date');
             $table->date('death_date')->nullable();
-            $table->string('bio', 500)->nullable();
             $table->timestamps();
         });
     }

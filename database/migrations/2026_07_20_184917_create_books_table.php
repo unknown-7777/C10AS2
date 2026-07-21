@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('code')->unique()->nullable();
             $table->text('description')->nullable();
-            $table->integer('page_count');
+            $table->integer('page_count')->nullable();
 
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->foreignId('author_id')->constrained()->cascadeOnDelete();

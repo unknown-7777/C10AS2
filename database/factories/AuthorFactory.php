@@ -17,12 +17,15 @@ class AuthorFactory extends Factory
      */
     public function definition(): array
     {
+        $birthDate = fake()->dateTimeBetween('-80 years', '-20 years');
+        
         return [
-                    'name'       => fake()->name(),
-                    'surname'    => fake()->lastname(),
-                    'birth_date' => fake()->date('Y-m-d', '2000-01-01'),
-                    'death_date' => fake()->optional()->date(),
-                    // 'country'    => fake()->country(),
+            'name'       => fake()->firstName(),
+            'surname'    => fake()->lastName(),
+            'bio'        => fake()->paragraph(3),
+            'country'    => fake()->country(),
+            'birth_date' => $birthDate->format('Y-m-d'),
+            'death_date' => fake()->optional(0.3)->dateTimeBetween($birthDate, 'now')?->format('Y-m-d'), 
         ];
     }
 }

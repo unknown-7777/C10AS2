@@ -85,7 +85,7 @@
                     <div class="col-sm-4">
                         <div class="p-3 bg-light rounded">
                             <div class="text-muted small mb-1"><i class="bi bi-file-text me-1"></i>Pages</div>
-                            <span class="fw-semibold">{{ $book->pages ?? '—' }}</span>
+                            <span class="fw-semibold">{{ $book->page_count ?? '—' }}</span>
                         </div>
                     </div>
                 </div>

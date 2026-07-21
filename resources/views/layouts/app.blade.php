@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('authors.*') ? 'active' : '' }}" href="#">
+                <a class="nav-link {{ request()->routeIs('authors.*') ? 'active' : '' }}" href="{{ route('authors.index.link') }}">
                     <i class="bi bi-person me-1"></i>Authors
                 </a>
             </li>
