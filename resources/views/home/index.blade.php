@@ -53,7 +53,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse($recentBooks as $index => $book)
+                @forelse($books as $index => $book)
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>{{ $book->title }}</td>

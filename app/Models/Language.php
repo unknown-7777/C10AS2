@@ -9,4 +9,14 @@ class Language extends Model
 {
     /** @use HasFactory<\Database\Factories\LanguageFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'code'
+        ];
+
+    public function book()
+    {
+        return $this->hasMany(Book::class);
+    }
 }

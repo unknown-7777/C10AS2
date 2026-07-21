@@ -9,4 +9,13 @@ class Year extends Model
 {
     /** @use HasFactory<\Database\Factories\YearFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'value'
+        ];
+
+    public function book()
+    {
+        return $this->hasMany(Book::class);
+    }
 }

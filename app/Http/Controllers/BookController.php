@@ -7,58 +7,29 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+     public function index(Request $request)
+     {
+         $books = Book::with(['author', 'category', 'year', 'language', 'publisher'])
+             ->when($request->search, fn($q) => $q->where('title', 'like', "%{$request->search}%"))
+             ->when($request->author_id, fn($q) => $q->where('author_id', $request->author_id))
+             ->when($request->category_id, fn($q) => $q->where('category_id', $request->category_id))
+             ->when($request->language_id, fn($q) => $q->where('language_id', $request->language_id))
+             ->when($request->publisher_id, fn($q) => $q->where('publisher_id', $request->publisher_id))
+             ->when($request->year_id, fn($q) => $q->where('year_id', $request->year_id))
+             ->paginate(15);
+     
+         return view('books.index', [
+             'books'      => $books,
+             'categories' => Category::orderBy('name')->get(),
+             'authors'    => Author::orderBy('name')->get(),
+             'languages'  => Language::orderBy('name')->get(),
+             'publishers' => Publisher::orderBy('name')->get(),
+             'years'      => Year::orderBy('value', 'desc')->get(),
+         ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Book $book)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Book $book)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Book $book)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Book $book)
     {
         //
     }
