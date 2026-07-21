@@ -14,9 +14,7 @@
     <div class="flex-grow-1">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h4 class="mb-0">Books</h4>
-            <a href="#" class="btn btn-primary btn-sm">
-                <i class="bi bi-plus-lg me-1"></i>Add book
-            </a>
+            
         </div>
 
         <div class="card shadow-sm">
@@ -38,23 +36,17 @@
                         @forelse($books as $book)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $book->title }}</td>
+                            <td>
+                                <a href="{{ route('books.show.link', $book) }}" class="text-decoration-none">
+                                    {{ $book->title }}
+                                </a>
+                            </td>
                             <td>{{ $book->author->name }}</td>
                             <td>{{ $book->category->name }}</td>
                             <td>{{ $book->year->value }}</td>
                             <td>{{ $book->language->name }}</td>
                             <td>{{ $book->publisher->name }}</td>
                             <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-outline-secondary">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-                                <form action="#" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this book?')">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
                             </td>
                         </tr>
                         @empty

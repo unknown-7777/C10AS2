@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('books.*') ? 'active' : '' }}" href="#">
+                <a class="nav-link {{ request()->routeIs('books.*') ? 'active' : '' }}" href="{{ route('books.index.link') }}">
                     <i class="bi bi-journal-bookmark me-1"></i>Books
                 </a>
             </li>

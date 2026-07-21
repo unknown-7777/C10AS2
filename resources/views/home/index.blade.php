@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Books</h5>
                     <p class="display-4 fw-bold">{{ $bookCount }}</p>
-                    <a href="#" class="btn btn-primary btn-sm">View all</a>
+                    <a href="{{ route('books.index.link') }}" class="btn btn-primary btn-sm">View all</a>
                 </div>
             </div>
         </div>
@@ -73,5 +73,4 @@
     </div>
 
 </div>
-
 @endsection
