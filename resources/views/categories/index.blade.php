@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-4">
 
-    <div class="d-flex align-items-center justify-content-between mb-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">    
         <div>
             <h4 class="mb-0">Categories</h4>
             <p class="text-muted small mb-0">{{ $categories->count() }} categories found</p>
