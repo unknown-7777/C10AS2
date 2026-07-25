@@ -5,11 +5,11 @@
 <div class="d-flex align-items-start">
 
     @include('layouts.partials.filter-sidebar', [
-        'categories' => $categories,
+        'categories'       => $categories,
         'authorFilters'    => $authors,
-        'languages'  => $languages,
-        'publishers' => $publishers,
-        'years'      => $years,
+        'languages'        => $languages,
+        'publishers'       => $publishers,
+        'years'            => $years,
     ])
 
     <div class="flex-grow-1">

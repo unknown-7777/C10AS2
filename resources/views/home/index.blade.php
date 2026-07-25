@@ -5,7 +5,6 @@
 
 
     <div class="row g-4">
-
         <div class="col-md-4">
             <a href="{{ route('books.index.link') }}" class="text-decoration-none">
                 <div class="card shadow-sm border-0 h-100 card-hover bg-primary bg-gradient text-white">
@@ -21,7 +20,6 @@
                 </div>
             </a>
         </div>
-    
 
         <div class="col-md-4">
             <a href="{{ route('authors.index.link') }}" class="text-decoration-none">
@@ -38,7 +36,6 @@
                 </div>
             </a>
         </div>
-    
 
         <div class="col-md-4">
             <a href="{{ route('categories.index.link') }}" class="text-decoration-none">
@@ -56,25 +53,19 @@
             </a>
         </div>
     </div>
-    
 
-    <style>
-        .card-hover {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-        }
-    </style>
 
-    <br>
+    <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+        <div>
+            <h5 class="fw-bold mb-0">Recent Books</h5>
+            <span class="text-muted small">Latest additions to the library</span>
+        </div>
+    </div>
 
     <div class="row g-4 mb-4">
         @forelse($books as $book)
         <div class="col-sm-6 col-lg-4">
             <div class="card shadow-sm border-0 h-100 overflow-hidden card-hover">
-    
 
                 <a href="{{ route('books.show.link', $book) }}" class="position-relative d-block bg-light text-center text-decoration-none book-cover-link" style="height: 220px;">
                     @if($book->cover_image)
@@ -88,12 +79,10 @@
                             <span class="small fw-medium">No cover image</span>
                         </div>
                     @endif
-    
 
                     <div class="cover-overlay d-flex align-items-center justify-content-center position-absolute top-0 start-0 w-100 h-100 text-white fw-semibold small">
                         <i class="bi bi-eye-fill me-1 fs-5"></i> View Details
                     </div>
-    
 
                     @if($book->category)
                         <span class="badge bg-primary position-absolute top-0 end-0 m-3 shadow-sm z-2">
@@ -101,17 +90,13 @@
                         </span>
                     @endif
                 </a>
-    
 
                 <div class="card-body d-flex flex-column p-3">
-                    
-
                     <h6 class="fw-bold mb-1 text-truncate" title="{{ $book->title }}">
                         <a href="{{ route('books.show.link', $book) }}" class="text-dark text-decoration-none hover-primary">
                             {{ $book->title }}
                         </a>
                     </h6>
-    
 
                     <p class="text-muted small mb-2">
                         <i class="bi bi-person me-1"></i>
@@ -123,35 +108,30 @@
                             <span class="text-muted">Unknown Author</span>
                         @endif
                     </p>
-    
 
                     <div class="d-flex flex-wrap gap-2 mb-3 align-items-center small text-muted">
                         @if($book->language)
                             <span><i class="bi bi-translate me-1 text-primary"></i>{{ $book->language->name }}</span>
                         @endif
-    
                         @if($book->year)
                             <span>•</span>
                             <span><i class="bi bi-calendar me-1 text-success"></i>{{ $book->year->value }}</span>
                         @endif
                     </div>
-    
 
                     @if($book->publisher)
                         <p class="text-muted small mb-3 mt-auto">
                             <i class="bi bi-building me-1"></i>{{ $book->publisher->name }}
                         </p>
                     @endif
-    
 
                     <div class="pt-2 border-top">
                         <a href="{{ route('books.show.link', $book) }}" class="btn btn-primary btn-sm w-100">
                             <i class="bi bi-eye me-1"></i>View Details
                         </a>
                     </div>
-    
                 </div>
-    
+
             </div>
         </div>
         @empty
@@ -159,35 +139,33 @@
             <div class="text-center py-5 my-4 bg-light rounded-3 border">
                 <i class="bi bi-journal-x text-muted" style="font-size: 3.5rem;"></i>
                 <h5 class="fw-bold mt-3 text-secondary">No books found</h5>
-                <p class="text-muted small mb-0">Try adjusting your filters or search terms.</p>
+                <p class="text-muted small mb-0">No books have been added yet.</p>
             </div>
         </div>
         @endforelse
     </div>
-    
-
-    <style>
-        .card-hover {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.12)!important;
-        }
-        .hover-primary:hover {
-            color: var(--bs-primary) !important;
-        }
-        
-
-        .cover-overlay {
-            background-color: rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-        .book-cover-link:hover .cover-overlay {
-            opacity: 1;
-        }
-    </style>
 
 </div>
+
+<style>
+    .card-hover {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.12) !important;
+    }
+    .hover-primary:hover {
+        color: var(--bs-primary) !important;
+    }
+    .cover-overlay {
+        background-color: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+    .book-cover-link:hover .cover-overlay {
+        opacity: 1;
+    }
+</style>
+
 @endsection

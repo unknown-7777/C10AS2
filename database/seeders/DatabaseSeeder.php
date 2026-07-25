@@ -46,12 +46,11 @@ class DatabaseSeeder extends Seeder
         $lang2 = Language::create(['name' => 'English', 'code' => 'en']);
         $lang3 = Language::create(['name' => 'Russian', 'code' => 'ru']);
 
-
-        $ear1 = Year::create(['value' => 1780]);
-        $ear2 = Year::create(['value' => 1850]);
-        $ear3 = Year::create(['value' => 1940]);
-        $ear4 = Year::create(['value' => 1950]);
-
+        $ear1 = Year::create(['value' => 2020]);
+        $ear2 = Year::create(['value' => 1963]);
+        $ear3 = Year::create(['value' => 1955]);
+        $ear4 = Year::create(['value' => 1974]);
+        $ear5 = Year::create(['value' => 1989]);
 
         $author1 = Author::create([
             'name' => 'Magtymguly',
@@ -77,35 +76,32 @@ class DatabaseSeeder extends Seeder
 
         $author4 = Author::create([
             'name' => 'Mollanepes',
-            'surname' => 'Kadirmammedov',
             'country' => 'Turkmenistan',
             'birth_date' => '1810-06-12',
         ]);
 
         $author5 = Author::create([
             'name' => 'Ata',
-            'surname' => 'Gowudov',
+            'surname' => 'Gowsudov',
             'country' => 'Turkmenistan',
             'birth_date' => '1904-07-15',
         ]);
 
-
-
         Book::create([
-                    'title' => 'The Decree (Perman)',
-                    'code' => 'BOOK123`',
-                    'author_id' => $author5->id,
-                    'publisher_id' => $pub2->id,
-                    'category_id' => $cat2->id,
-                    'language_id' => $lang1->id,
-                    'year_id' => $ear4->id,
-                    'page_count' => 360,
-                    'description' => 'A major historical novel portraying key events in Turkmen history and struggle.',
+            'title' => 'The Decree (Perman)',
+            'code' => 'BOOK001',
+            'author_id' => $author5->id,
+            'publisher_id' => $pub2->id,
+            'category_id' => $cat2->id,
+            'language_id' => $lang1->id,
+            'year_id' => $ear5->id,
+            'page_count' => 214,
+            'cover_image' => 'books/perman.jpg',
+            'description' => 'A major historical novel portraying key events in Turkmen history and struggle.',
         ]);
 
-
         Book::create([
-            'title' => 'Separated (Aýryldym)',
+            'title' => 'Of the Turkmen (Turkmenin)',
             'code' => 'BOOK002',
             'author_id' => $author1->id,
             'publisher_id' => $pub2->id,
@@ -113,23 +109,22 @@ class DatabaseSeeder extends Seeder
             'language_id' => $lang1->id,
             'year_id' => $ear1->id,
             'page_count' => 256,
-            'cover_image' => 'books/65a2391750c30037243703.jpg',
+            'cover_image' => 'books/turkmenin.jpg',
             'description' => 'A deeply emotional poem reflecting on longing, spiritual journey, and separation.',
         ]);
 
-
         Book::create([
-            'title' => 'The Decisive Step (Agyr Ädim)',
+            'title' => 'The Decisive Step (Aygytly Ädim)',
             'code' => 'BOOK003',
             'author_id' => $author2->id,
             'publisher_id' => $pub1->id,
             'category_id' => $cat2->id,
             'language_id' => $lang1->id,
             'year_id' => $ear3->id,
-            'page_count' => 480,
+            'page_count' => 357,
+            'cover_image' => 'books/decisive_step.jpg',
             'description' => 'A landmark novel portraying Turkmen social changes during the early 20th century.',
         ]);
-
 
         Book::create([
             'title' => 'The Tales of Kemine (Keminäniň Şorta Sözleri)',
@@ -138,24 +133,25 @@ class DatabaseSeeder extends Seeder
             'publisher_id' => $pub3->id,
             'category_id' => $cat3->id,
             'language_id' => $lang1->id,
-            'year_id' => $ear2->id,
+            'year_id' => $ear4->id,
             'page_count' => 210,
+            'cover_image' => 'books/kemine_tales.jpg',
             'description' => 'A collection of witty, satirical tales and poems criticizing inequality through folk humor.',
         ]);
 
-
         Book::create([
-            'title' => 'Zohre And Tahyr (Zöhre - Tahyr )',
+            'title' => 'Zohre And Tahyr (Zöhre - Tahyr)',
             'code' => 'BOOK005',
             'author_id' => $author4->id,
             'publisher_id' => $pub2->id,
             'category_id' => $cat1->id,
             'language_id' => $lang1->id,
-            'year_id' => $ear2->id,
-            'page_count' => 340,
+            'year_id' => $ear4->id,
+            'page_count' => 156,
+            'cover_image' => 'books/zohre_tahyr.jpg',
             'description' => 'A classic romantic dastan based on traditional folk legends of tragic love.',
         ]);
 
-        $this->command->info('✅ 5 authentic Turkmen literature entries seeded successfully!');
+        $this->command->info('✅ 5 authentic Turkmen literature entries with book covers seeded successfully!');
     }
 }
