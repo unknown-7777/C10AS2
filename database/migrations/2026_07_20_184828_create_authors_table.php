@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('bio', 500)->nullable();
             $table->date('birth_date');
             $table->date('death_date')->nullable();
+            $table->string('photo_url')->nullable();
             $table->timestamps();
         });
     }

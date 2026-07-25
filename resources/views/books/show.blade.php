@@ -72,7 +72,9 @@
                     <div class="col-sm-4">
                         <div class="p-3 bg-light rounded">
                             <div class="text-muted small mb-1"><i class="bi bi-translate me-1"></i>Language</div>
-                            <span class="fw-semibold">{{ $book->language->name }}</span>
+                            <a href="{{ route('languages.show.link', $book->language) }}" class="fw-semibold text-decoration-none">
+                                {{ $book->language->name }}
+                            </a>
                         </div>
                     </div>
                     <div class="col-sm-4">

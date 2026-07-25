@@ -13,6 +13,20 @@ class AuthorSeeder extends Seeder
      */
     public function run(): void
     {
-        Author::factory(20)->create();
+        Author::factory(100)->create();
+
+    // $authors = [
+    //             ['name' => 'Aman', 'surname' => 'Myradow', 'country' => 'Turkmenistan'],
+    //             ['name' => 'Azat', 'surname' => 'Donemzow', 'country' => 'Turkmenistan'],
+    //             ['name' => 'Aly', 'surname' => 'Sohradow', 'country' => 'Turkmenistan'],
+    //             ['name' => 'Myrat', 'surname' => 'Amanow', 'country' => 'Turkmenistan'],
+    //             ['name' => 'Magtymguly', 'surname' => 'Pyragy', 'country' => 'Turkmenistan'],
+    //         ];
+    
+    //         foreach ($authors as $author) {
+    //             Author::create($author);
+    //         }
+
     }
+
 }

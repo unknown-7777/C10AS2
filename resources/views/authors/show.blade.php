@@ -17,12 +17,19 @@
 
     <div class="col-md-3">
         <div class="card shadow-sm">
-            <div class="d-flex align-items-center justify-content-center bg-light" style="height: 260px;">
-                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
-                     style="width: 100px; height: 100px; font-size: 2.8rem;">
-                    {{ strtoupper(substr($author->name, 0, 1)) }}
+            @if($author->photo_url)
+                <img src="{{ asset('storage/' . $author->photo_url) }}" 
+                     class="card-img-top" 
+                     style="height: 260px; object-fit: cover;"
+                     alt="{{ $author->name }} {{ $author->surname }}">
+            @else
+                <div class="d-flex align-items-center justify-content-center bg-light" style="height: 260px;">
+                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+                         style="width: 100px; height: 100px; font-size: 2.8rem;">
+                        {{ strtoupper(substr($author->name, 0, 1)) }}
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 
@@ -59,7 +66,7 @@
                     @endif
                 </div>
 
-
+                {{-- Books table --}}
                 <h6 class="fw-semibold mb-3">
                     <i class="bi bi-journal-bookmark me-2"></i>Books by {{ $author->name }}
                     <span class="badge bg-primary ms-1">{{ $author->books_count }}</span>
@@ -120,12 +127,19 @@
         @foreach($relatedAuthors as $related)
         <div class="col-md-3">
             <div class="card shadow-sm h-100">
-                <div class="d-flex align-items-center justify-content-center bg-light" style="height: 120px;">
-                    <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
-                         style="width: 56px; height: 56px; font-size: 1.4rem;">
-                        {{ strtoupper(substr($related->name, 0, 1)) }}
+                @if($related->photo_url)
+                    <img src="{{ asset('storage/' . $related->photo_url) }}" 
+                         class="card-img-top"
+                         style="height: 120px; object-fit: cover;"
+                         alt="{{ $related->name }}">
+                @else
+                    <div class="d-flex align-items-center justify-content-center bg-light" style="height: 120px;">
+                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+                             style="width: 56px; height: 56px; font-size: 1.4rem;">
+                            {{ strtoupper(substr($related->name, 0, 1)) }}
+                        </div>
                     </div>
-                </div>
+                @endif
                 <div class="card-body">
                     <h6 class="card-title mb-1">{{ $related->name }}</h6>
                     <p class="text-muted small mb-2">

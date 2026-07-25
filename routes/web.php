@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LanguageController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -19,6 +20,8 @@ Route::get('/authors/{author}', [AuthorController::class, 'show'])->name('author
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index.link');
 
 Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show.link');
+
+Route::get('/languages/{language}', [LanguageController::class, 'show'])->name('languages.show.link');
 
 
 

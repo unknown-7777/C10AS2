@@ -42,7 +42,7 @@
                 </div>
                 @endisset
 
-                @isset($authors)
+                @isset($authorFilters)
                 <div class="mb-3">
                     <label class="form-label text-muted small">Author</label>
                     <select name="author_id" class="form-select form-select-sm">

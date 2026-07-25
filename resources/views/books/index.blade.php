@@ -6,7 +6,7 @@
 
     @include('layouts.partials.filter-sidebar', [
         'categories' => $categories,
-        'authors'    => $authors,
+        'authorFilters'    => $authors,
         'languages'  => $languages,
         'publishers' => $publishers,
         'years'      => $years,
@@ -115,6 +115,17 @@
             </div>
             @endforelse
         </div>
+
+        @if($books->hasPages())
+                <div class="d-flex flex-column align-items-center gap-1 mt-4 mb-3">
+                    <div>
+                        {{ $books->withQueryString()->links('pagination::bootstrap-5') }}
+                    </div>
+                    <p class="text-muted small mb-0">
+                        Showing {{ $books->firstItem() }}–{{ $books->lastItem() }} of {{ $books->total() }} results
+                    </p>
+                </div>
+        @endif
         
 
         <style>

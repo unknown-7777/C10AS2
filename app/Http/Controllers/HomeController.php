@@ -27,7 +27,7 @@ class HomeController extends Controller
             'categoryCount' => Category::count(),
             'books'   => Book::with(['author', 'category', 'year', 'language', 'publisher'])
                                    ->latest()
-                                   ->paginate(10),
+                                   ->paginate(9),
         ]);
     }
 }
