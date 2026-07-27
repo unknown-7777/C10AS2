@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-
         $this->call([
             CategorySeeder::class,
             AuthorSeeder::class,
@@ -29,28 +28,26 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Create test user
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'test@example.com'],
+            ['name' => 'Test User', 'password' => bcrypt('password')]
+        );
 
-        $pub1 = Publisher::create(['name' => 'Turkmen State Publishing Service']);
-        $pub2 = Publisher::create(['name' => 'Ylym Publishing House']);
-        $pub3 = Publisher::create(['name' => 'Ruh Publishing']);
+        $pub1 = Publisher::firstOrCreate(['name' => 'Turkmen State Publishing Service']);
+        $pub2 = Publisher::firstOrCreate(['name' => 'Ylym Publishing House']);
+        $pub3 = Publisher::firstOrCreate(['name' => 'Ruh Publishing']);
 
-        $cat1 = Category::create(['name' => 'Poetry & Unity']);
-        $cat2 = Category::create(['name' => 'Historical Fiction']);
-        $cat3 = Category::create(['name' => 'Satire & Folklore']);
+        $cat1 = Category::firstOrCreate(['name' => 'Poetry & Unity']);
+        $cat2 = Category::firstOrCreate(['name' => 'Historical Fiction']);
+        $cat3 = Category::firstOrCreate(['name' => 'Satire & Folklore']);
 
-        $lang1 = Language::create(['name' => 'Turkmen', 'code' => 'tk']);
-        $lang2 = Language::create(['name' => 'English', 'code' => 'en']);
-        $lang3 = Language::create(['name' => 'Russian', 'code' => 'ru']);
+        $lang1 = Language::where('name', 'Turkmen')->first();
 
-        $ear1 = Year::create(['value' => 2020]);
-        $ear2 = Year::create(['value' => 1963]);
-        $ear3 = Year::create(['value' => 1955]);
-        $ear4 = Year::create(['value' => 1974]);
-        $ear5 = Year::create(['value' => 1989]);
+        $ear1 = Year::firstOrCreate(['value' => 2020]);
+        $ear2 = Year::firstOrCreate(['value' => 1963]);
+        $ear3 = Year::firstOrCreate(['value' => 1955]);
+        $ear4 = Year::firstOrCreate(['value' => 1974]);
+        $ear5 = Year::firstOrCreate(['value' => 1989]);
 
         $author1 = Author::create([
             'name' => 'Magtymguly',
